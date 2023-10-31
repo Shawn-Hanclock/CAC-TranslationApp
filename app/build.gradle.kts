@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.cactranslationapp"
-        minSdk = 21
+        minSdk = 25
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
