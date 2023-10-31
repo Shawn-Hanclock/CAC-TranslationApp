@@ -56,12 +56,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="ExtraText">
 
 <!--            ImageView to show img from camera or gallery-->
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/image_imgV"
                 android:layout_width="match_parent"
+                android:layout_margin="10dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/baseline_image_24"
                 android:adjustViewBounds="true"
@@ -73,14 +75,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Recognize Text:"/>
+                android:text="Edit Recognized Text"/>
 
 <!--            EditText that will show the text that was recognized-->
             <EditText
                 android:id="@+id/recognizedText_editT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:textSize="12sp"/>
+
+<!--            select language options-->
+            <Spinner
+                android:id="@+id/language_Spn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown"/>
+
+<!--            Speak text Button-->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tts_Btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cornerRadius="5dp"
+                    android:layout_weight="1"
+                    app:icon="@drawable/baseline_record_voice_over_24"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginHorizontal="50dp"
+                    android:text="Speak Text" />
+
+
 
         </LinearLayout>
     </ScrollView>
