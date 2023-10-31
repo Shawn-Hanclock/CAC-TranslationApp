@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">CACTranslationApp</string>
     <string name="translater_app">TRANSlATION APP</string>
-    <string name="add_image">ADD IMAGE</string>
 </resources>
