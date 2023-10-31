@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Title.Main" parent="TextAppearance.AppCompat.Title">
-        <item name="android:textSize">50sp</item>
+        <item name="android:textSize">100sp</item>
         <item name="android:textColor">@color/black</item>
     </style>
 </resources>

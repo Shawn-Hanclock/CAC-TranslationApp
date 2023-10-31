@@ -7,21 +7,25 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text_title"
-        android:textAppearance="@android:style/TextAppearance.Material.Title"
-        android:layout_width="wrap_content"
+    <!--            button to return home-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/return_btn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/translater_app"
-        android:layout_centerHorizontal="true"
-        android:textAlignment="center"
-        android:layout_margin="8dp"/>
+        app:cornerRadius="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="50dp"
+        android:text="Return Home" />
+
     <LinearLayout
+        android:layout_below="@id/return_btn"
         android:id="@+id/linear_btnHolder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/text_title">
+        android:layout_centerHorizontal="true">
 
 <!--        Button to take Image from Camera-->
         <com.google.android.material.button.MaterialButton
@@ -51,7 +55,7 @@
     <ScrollView
         android:id="@+id/scroll_holder"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_below="@id/linear_btnHolder">
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,32 +89,27 @@
                 android:layout_marginTop="10dp"
                 android:textSize="12sp"/>
 
-<!--            select language options-->
+<!--            spinner to select the language option-->
             <Spinner
                 android:id="@+id/language_Spn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="10dp"
                 android:background="@android:drawable/btn_dropdown"
                 android:spinnerMode="dropdown"/>
 
-<!--            Speak text Button-->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/tts_Btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cornerRadius="5dp"
-                    android:layout_weight="1"
-                    app:icon="@drawable/baseline_record_voice_over_24"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginHorizontal="50dp"
-                    android:text="Speak Text" />
-
-
-
+            <!--            Speak text Button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tts_Btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cornerRadius="5dp"
+                android:layout_weight="1"
+                app:icon="@drawable/baseline_record_voice_over_24"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="50dp"
+                android:text="Speak Text" />
         </LinearLayout>
     </ScrollView>
-
-
-
 </RelativeLayout>
