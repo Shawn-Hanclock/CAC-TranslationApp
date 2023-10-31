@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:padding="10dp"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
@@ -15,13 +16,75 @@
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:layout_margin="8dp"/>
-    <Button
-        android:id="@+id/btn_img_add"
+    <LinearLayout
+        android:id="@+id/linear_btnHolder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_title"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="8dp"
-        android:text="@string/add_image"/>
+        android:orientation="horizontal"
+        android:layout_below="@id/text_title">
+
+<!--        Button to take Image from Camera-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/inputImg_Btn"
+            app:cornerRadius="5dp"
+            android:layout_weight="1"
+            app:icon="@drawable/baseline_add_a_photo_24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="Take Image"/>
+
+<!--        Button to Recognize text from the image-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/recognize_Btn"
+            app:cornerRadius="5dp"
+            android:layout_weight="1"
+            app:icon="@drawable/baseline_document_scanner_24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="Recognize Text"/>
+
+    </LinearLayout>
+
+<!--    Scollable holder for elements under button-->
+    <ScrollView
+        android:id="@+id/scroll_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_btnHolder">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+<!--            ImageView to show img from camera or gallery-->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/image_imgV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_image_24"
+                android:adjustViewBounds="true"
+                app:strokeWidth="2dp"/>
+
+<!--            TextView to label the text that below will be the recognized text-->
+            <TextView
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Recognize Text:"/>
+
+<!--            EditText that will show the text that was recognized-->
+            <EditText
+                android:id="@+id/recognizedText_editT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
 
 </RelativeLayout>
