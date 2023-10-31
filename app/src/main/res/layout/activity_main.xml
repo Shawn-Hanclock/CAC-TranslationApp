@@ -7,20 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!--            button to return home-->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/return_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cornerRadius="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_weight="1"
-        android:layout_marginTop="5dp"
-        android:layout_marginHorizontal="50dp"
-        android:text="Return Home" />
-
     <LinearLayout
-        android:layout_below="@id/return_btn"
         android:id="@+id/linear_btnHolder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,6 +45,7 @@
         android:layout_height="fill_parent"
         android:layout_below="@id/linear_btnHolder">
         <LinearLayout
+            android:id="@+id/insideScroll_linHolder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -110,6 +98,19 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginHorizontal="50dp"
                 android:text="Speak Text" />
+
+            <!--            button to return home-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/return_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cornerRadius="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="50dp"
+                android:text="Return Home" />
         </LinearLayout>
     </ScrollView>
+
 </RelativeLayout>

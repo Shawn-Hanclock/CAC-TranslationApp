@@ -21,13 +21,13 @@
         android:textAppearance="@android:style/TextAppearance.Material.Title" />
 
     <com.google.android.material.button.MaterialButton
-        android:layout_below="@id/text_title"
         android:id="@+id/toMainActivity_btn"
-        app:cornerRadius="10dp"
-        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/text_title"
         android:layout_marginHorizontal="80dp"
-        android:text="Start Translating"/>
+        android:layout_weight="1"
+        android:text="Start Translating"
+        app:cornerRadius="10dp" />
 
 </RelativeLayout>

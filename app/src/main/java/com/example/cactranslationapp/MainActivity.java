@@ -33,7 +33,7 @@ import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 
 public class MainActivity extends AppCompatActivity {
     //UI Views
-    private MaterialButton inputImageBtn, recognizeTextBtn;
+    private MaterialButton inputImageBtn, recognizeTextBtn, returnBtn, speakBtn;
     private ShapeableImageView imageView;
     private EditText recognizedEdText;
 
@@ -79,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
         recognizeTextBtn = findViewById(R.id.recognize_Btn);
         imageView = findViewById(R.id.image_imgV);
         recognizedEdText = findViewById(R.id.recognizedText_editT);
+        returnBtn = findViewById(R.id.return_btn);
+        speakBtn = findViewById(R.id.tts_Btn);
+
 
         //init arrays of permission required for camera, gallery
 
@@ -119,6 +122,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //navgatation click handler
+        returnBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, HomeActivity.class));
+            }
+        });
+
 
     }
 

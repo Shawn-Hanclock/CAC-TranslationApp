@@ -21,10 +21,10 @@
         android:theme="@style/Theme.CACTranslationApp"
         tools:targetApi="33">
         <activity
-            android:name=".HomeActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
