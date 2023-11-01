@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">CACTranslationApp</string>
-    <string name="translater_app">TRANSlATION APP</string>
+    <string name="translater_app">Language Helper</string>
     <string-array name="language_options_Eng">
         <item>Select a language</item>
         <item>English</item>

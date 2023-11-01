@@ -4,4 +4,8 @@
         <item name="android:textSize">100sp</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <style name="NavButtonStyle" parent="ThemeOverlay.AppCompat">
+        <item name="backgroundTint">#E9EBF8</item>
+    </style>
 </resources>

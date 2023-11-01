@@ -6,37 +6,51 @@
     android:padding="10dp"
     android:paddingHorizontal="10dp"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+
+    android:background="#B4B8C5">
 
     <LinearLayout
         android:id="@+id/linear_btnHolder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="5dp"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true">
 
 <!--        Button to take Image from Camera-->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/inputImg_Btn"
+
             app:cornerRadius="5dp"
             android:layout_weight="1"
             app:icon="@drawable/baseline_add_a_photo_24"
+            android:textSize="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            app:backgroundTint="#8D818C"
+            android:textColor="#FEFFFE"
+
+
             android:layout_marginEnd="10dp"
             android:text="Take Image"/>
 
 <!--        Button to Recognize text from the image-->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/recognize_Btn"
+
             app:cornerRadius="5dp"
             android:layout_weight="1"
             app:icon="@drawable/baseline_document_scanner_24"
+            android:textSize="20dp"
+            app:backgroundTint="#8D818C"
+            android:textColor="#FEFFFE"
+
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="0dp"
-            android:text="Recognize Text"/>
+            android:text="Find Text"/>
 
     </LinearLayout>
 
@@ -69,7 +83,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Text For Speech:"/>
+
+                android:textSize="24sp"
+                android:textColor="#2A2B2A"
+
+
+                android:text="Your Text For Speech :"/>
 
 <!--            EditText that will show the text that was recognized-->
             <EditText
@@ -77,8 +96,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusedByDefault="false"
-                android:hint="Enter Text or Recognize From Image"
-                android:textSize="12sp"/>
+                android:hint="Enter Text or try Finding Text From Image"
+                android:textSize="20sp"/>
 
 <!--            spinner to select the language option-->
             <Spinner
@@ -95,25 +114,36 @@
                 android:id="@+id/tts_Btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 app:cornerRadius="5dp"
                 android:layout_weight="1"
                 app:icon="@drawable/baseline_record_voice_over_24"
+                app:itemIconSize="40dp"
+                android:textSize="20dp"
+                app:backgroundTint="#8D818C"
+                android:textColor="#FEFFFE"
+
                 android:layout_marginTop="5dp"
                 android:layout_marginHorizontal="50dp"
                 android:text="Speak Text" />
 
             <!--            button to return home-->
             <com.google.android.material.button.MaterialButton
+                android:theme="@style/NavButtonStyle"
                 android:id="@+id/return_btn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+
+                android:layout_height="50dp"
                 app:cornerRadius="5dp"
-                android:layout_marginBottom="5dp"
+                app:backgroundTint="#2A2B2A"
+                android:textColor="#cccccc"
+                android:textSize="25dp"
                 android:layout_weight="1"
+
+                android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginHorizontal="50dp"
                 android:text="Return Home" />
         </LinearLayout>
     </ScrollView>
-
 </RelativeLayout>

@@ -21,6 +21,9 @@
         android:theme="@style/Theme.CACTranslationApp"
         tools:targetApi="33">
         <activity
+            android:name=".TextFromImage"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
