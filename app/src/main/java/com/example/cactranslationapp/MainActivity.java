@@ -1,5 +1,9 @@
 package com.example.cactranslationapp;
 
+
+
+import static android.speech.tts.TextToSpeech.QUEUE_FLUSH;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +17,8 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.Voice;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -31,7 +37,15 @@ import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+
 public class MainActivity extends AppCompatActivity {
+    //text to speech
+    TextToSpeech tts;
+
     //UI Views
     private MaterialButton inputImageBtn, recognizeTextBtn, returnBtn, speakBtn;
     private ShapeableImageView imageView;
@@ -57,6 +71,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.ERROR) {
+                    setLanguageAndVoice();
+                }
+                else {
+                    Toast.makeText(MainActivity.this, "Failed To Start TTS Engine.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         //spinner dropdown menu code
         //get the spinner from the xml.
@@ -73,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
         // Apply the adapter to the spinner.
         dropdown.setAdapter(adapter);
 
-
         //init UI Views
         inputImageBtn = findViewById(R.id.inputImg_Btn);
         recognizeTextBtn = findViewById(R.id.recognize_Btn);
@@ -82,13 +106,8 @@ public class MainActivity extends AppCompatActivity {
         returnBtn = findViewById(R.id.return_btn);
         speakBtn = findViewById(R.id.tts_Btn);
 
-
-        //init arrays of permission required for camera, gallery
-
-
+        //init arrays of permission required for camera
         onlyCamPermission = new String[]{Manifest.permission.CAMERA};
-
-
 
         //init setup the progress dialog, show while text from image is being recognized
         progressDialog = new ProgressDialog(this);
@@ -131,7 +150,56 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //handles click for speak text button
+        speakBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                speakTheInput(dropdown);
+            }
+        });
+    }
 
+    //set the language and voices for tts
+    private void setLanguageAndVoice() {
+        Locale desiredLocale = Locale.US; // Change to the desired language/locale
+        tts.setLanguage(desiredLocale);
+
+        Set<Voice> voices = tts.getVoices();
+        List<Voice> voiceList = new ArrayList<>(voices);
+        Voice selectedVoice = voiceList.get(10); // Change to the desired voice index
+        tts.setVoice(selectedVoice);
+    }
+
+    //speak the input text given
+    private void speakTheInput(Spinner dropdown) {
+        if(recognizedEdText.getText().length() != 0)
+        {
+            String text = recognizedEdText.getText().toString();
+            String lang = dropdown.getSelectedItem().toString();
+            //run tts on the edit text
+            switch(lang) {
+                case "English":
+                                tts.setLanguage(Locale.ENGLISH);
+                    tts.speak(text, QUEUE_FLUSH, null, null);
+                break;
+                case "Spanish":
+                                Locale locSpan = new Locale("spa", "MEX");
+                                tts.setLanguage(locSpan);
+                    tts.speak(text, QUEUE_FLUSH, null,  null);
+                break;
+                case "French":
+                                tts.setLanguage(Locale.FRENCH);
+                    tts.speak(text, QUEUE_FLUSH, null, null);
+                break;
+                default:
+                    Toast.makeText(this, "Select a language...", Toast.LENGTH_SHORT).show();
+                break;
+            }
+
+        }
+        else{
+            Toast.makeText(this, "Enter Text, or use Recognize Text..", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void recognizeTextFromImage() {

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:padding="10dp"
+    android:paddingHorizontal="10dp"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
@@ -11,6 +12,7 @@
         android:id="@+id/linear_btnHolder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true">
 
@@ -22,7 +24,7 @@
             app:icon="@drawable/baseline_add_a_photo_24"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="10dp"
             android:text="Take Image"/>
 
 <!--        Button to Recognize text from the image-->
@@ -33,7 +35,7 @@
             app:icon="@drawable/baseline_document_scanner_24"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="0dp"
             android:text="Recognize Text"/>
 
     </LinearLayout>
@@ -67,14 +69,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Edit Recognized Text"/>
+                android:text="Text For Speech:"/>
 
 <!--            EditText that will show the text that was recognized-->
             <EditText
                 android:id="@+id/recognizedText_editT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:focusedByDefault="false"
+                android:hint="Enter Text or Recognize From Image"
                 android:textSize="12sp"/>
 
 <!--            spinner to select the language option-->
